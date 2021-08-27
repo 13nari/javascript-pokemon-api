@@ -1,6 +1,10 @@
 #tablez{
 	min-width: 60%;
 	margin-left: 20%;
+	border-color: #000000;
+	border-style: solid;
+	border-width: 2px;
+	
 }
 #item-list{
     margin-left: 20%;
