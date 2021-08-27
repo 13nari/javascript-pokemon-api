@@ -26,37 +26,28 @@ $(function () {
     function onEnterPress() {
 
         if (perguntas.includes(aux3)) {
-            if (aux3 == "bulbasaur"){
+            if (aux3 == "bulbasaur") {
                 //$("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Bulbasaur</div>")
-                $("#container2").append("<div><div>" +
-                    data.name +
-                    "</div><div>test" + "<img src=" + data.sprites.front_default + "></img>" + "</div><div>" +
-                    data.abilities[i].ability.name + "</div><div>" +
-                    data.types[i].type.name + "</div><div>" +
-                    data.weight + "</div></div>")
 
-                    
-                        $.ajax({
-                          url: 'https://pokeapi.co/api/v2/pokemon/bulbasaur/',
-                          dataType: 'json',
-                          success: function (data) {
-                            console.log(data.results)
-                            
-                              $("#container2").append("<tr><td>" +
-                                data.name +
-                                "</td><td>" + "<img src=" + data.sprites.front_default + "></img>" + "</td><td>" +
-                                data.abilities[i].ability.name + "</td><td>" +
-                                data.types[i].type.name + "</td><td>" +
-                                data.weight + "</td></tr>")
-                            
-                          }
-                      
-                        })
-                      
+                $.ajax({
+                    url: 'https://pokeapi.co/api/v2/pokemon/bulbasaur/',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.results)
+
+                        $("#tablez").append(
+                            "<tr><td>"+data.name+"</td><td>"+"<img src="+data.sprites.front_default+"></img>"+"</td><td>" +
+                            data.abilities[0].ability.name+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
+                            data.weight+"</td></tr>"
+                        )
+
+                    }
+
+                })
 
             }
 
-            
+
 
 
             if (aux3 == "ivysaur")
