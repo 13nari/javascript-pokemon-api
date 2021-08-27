@@ -6,7 +6,7 @@ $(function () {
     var aux4 = 0
     var aux5 = 0
     var pontos = 0;
-    var perguntas = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartotle", "blastoise", "caterpie",
+    var pokemon = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartotle", "blastoise", "caterpie",
         "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate",
         "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran", "nidorina",
         "nidoqueen", "nidoran", "nidorino", "nidoking", "clefairy", "clefable", "vulpix", "ninetales", "jigglypuff", "wigglytuff",
@@ -26,7 +26,7 @@ $(function () {
 
     function onEnterPress() {
 
-        if (perguntas.includes(aux3)) {
+        if (pokemon.includes(aux3)) {
             
             if (aux3 == "bulbasaur") {
                 $.ajax({
@@ -38,8 +38,10 @@ $(function () {
                             data.abilities[0].ability.name+", "+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
                             data.weight+"</td></tr>"
                         )
+                        pokemon.shift()
                         pontos += 1;
                         $("#score").text(pontos);
+                        
                     }
                 })
             }
@@ -53,8 +55,10 @@ $(function () {
                             data.abilities[0].ability.name+", "+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
                             data.weight+"</td></tr>"
                         )
+                        pokemon.shift()
                         pontos += 1;
                         $("#score").text(pontos);
+                        
                     }
                 })
             }
@@ -67,6 +71,10 @@ $(function () {
                 $("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Charmeleon</div>")
                 */
 
+        } else{
+                $("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Combo Breaker!!!</div>")
+                pontos = 0;
+                $("#score").text(pontos);
         }
 
         return
