@@ -1,2 +1,2 @@
-# javascriptchatbot
-This is a Javascript Chatbot.
+# javascript pokemon API
+This is a Pokémon displayer using https://pokeapi.co/.
