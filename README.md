@@ -1,2 +1,2 @@
-# javascript-pokemon-api
-This is a javascript pokémon API
+# javascriptchatbot
+This is a Javascript Chatbot.
