@@ -5,6 +5,7 @@ $(function () {
     var aux3 = "n"
     var aux4 = 0
     var aux5 = 0
+    var pontos = 0;
     var perguntas = ["bulbasaur", "ivysaur", "venusaur", "charmander", "charmeleon", "charizard", "squirtle", "wartotle", "blastoise", "caterpie",
         "metapod", "butterfree", "weedle", "kakuna", "beedrill", "pidgey", "pidgeotto", "pidgeot", "rattata", "raticate",
         "spearow", "fearow", "ekans", "arbok", "pikachu", "raichu", "sandshrew", "sandslash", "nidoran", "nidorina",
@@ -26,38 +27,45 @@ $(function () {
     function onEnterPress() {
 
         if (perguntas.includes(aux3)) {
+            
             if (aux3 == "bulbasaur") {
-                //$("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Bulbasaur</div>")
-
                 $.ajax({
                     url: 'https://pokeapi.co/api/v2/pokemon/bulbasaur/',
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data.results)
-
                         $("#tablez").append(
                             "<tr><td>"+data.name+"</td><td>"+"<img src="+data.sprites.front_default+"></img>"+"</td><td>" +
-                            data.abilities[0].ability.name+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
+                            data.abilities[0].ability.name+", "+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
                             data.weight+"</td></tr>"
                         )
-
+                        pontos += 1;
+                        $("#score").text(pontos);
                     }
-
                 })
-
             }
-
-
-
-
-            if (aux3 == "ivysaur")
-                $("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Ivysaur</div>")
+            if (aux3 == "ivysaur"){
+                $.ajax({
+                    url: 'https://pokeapi.co/api/v2/pokemon/ivysaur/',
+                    dataType: 'json',
+                    success: function (data) {
+                        $("#tablez").prepend(
+                            "<tr><td>"+data.name+"</td><td>"+"<img src="+data.sprites.front_default+"></img>"+"</td><td>" +
+                            data.abilities[0].ability.name+", "+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
+                            data.weight+"</td></tr>"
+                        )
+                        pontos += 1;
+                        $("#score").text(pontos);
+                    }
+                })
+            }
             if (aux3 == "venusaur")
                 $("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Venusaur</div>")
             if (aux3 == "charmander")
                 $("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Charmander</div>")
+            /*
             if (aux3 == "charmeleon")
                 $("#container").append("<div class='resposta' id='apice-" + aux2 + "'>IA: Charmeleon</div>")
+                */
 
         }
 
@@ -71,7 +79,7 @@ $(function () {
                     case 0: // primeira mensagem
                         $("#container").append(
                             "<div id='flex'>" +
-                            "<div>Você:&nbsp;</div>" +
+                            "<div>You:&nbsp;</div>" +
                             "<div class='pergunta' id='apice-" + aux + "'></div>" +
                             "</div>"
                         )
@@ -87,7 +95,7 @@ $(function () {
                     case 2: // segunda mensagem
                         $("#container").append(
                             "<div id='flex'>" +
-                            "<div>Você:&nbsp;</div>" +
+                            "<div>You:&nbsp;</div>" +
                             "<div class='pergunta' id='apice-" + aux + "'></div>" +
                             "</div>"
                         )
@@ -103,7 +111,7 @@ $(function () {
                     case 4: // terceira mensagem
                         $("#container").append(
                             "<div id='flex'>" +
-                            "<div>Você:&nbsp;</div>" +
+                            "<div>You:&nbsp;</div>" +
                             "<div class='pergunta' id='apice-" + aux + "'></div>" +
                             "</div>"
                         )
@@ -119,7 +127,7 @@ $(function () {
                     case 6: // quarta mensagem
                         $("#container").append(
                             "<div id='flex'>" +
-                            "<div>Você:&nbsp;</div>" +
+                            "<div>You:&nbsp;</div>" +
                             "<div class='pergunta' id='apice-" + aux + "'></div>" +
                             "</div>"
                         )
@@ -135,7 +143,7 @@ $(function () {
                     case 8: // quinta mensagem
                         $("#container").append(
                             "<div id='flex'>" +
-                            "<div>Você:&nbsp;</div>" +
+                            "<div>You:&nbsp;</div>" +
                             "<div class='pergunta' id='apice-" + aux + "'></div>" +
                             "</div>"
                         )
@@ -151,7 +159,7 @@ $(function () {
                     case 10: // sexta mensagem
                         $("#container").append(
                             "<div id='flex'>" +
-                            "<div>Você:&nbsp;</div>" +
+                            "<div>You:&nbsp;</div>" +
                             "<div class='pergunta' id='apice-" + aux + "'></div>" +
                             "</div>"
                         )
@@ -167,7 +175,7 @@ $(function () {
                     case 12: // setima mensagem
                         $("#container").append(
                             "<div id='flex'>" +
-                            "<div>Você:&nbsp;</div>" +
+                            "<div>You:&nbsp;</div>" +
                             "<div class='pergunta' id='apice-" + aux + "'></div>" +
                             "</div>"
                         )
@@ -194,7 +202,7 @@ $(function () {
                 $("#flex").remove()
                 $("#container").append(
                     "<div id='flex'>" +
-                    "<div>Você:&nbsp;</div>" +
+                    "<div>You:&nbsp;</div>" +
                     "<div class='pergunta' id='apice-" + aux + "'></div>" +
                     "</div>"
                 )
