@@ -34,7 +34,7 @@ $(function () {
                     dataType: 'json',
                     success: function (data) {
                         $("#tablez").append(
-                            "<tr><td>"+data.name+"</td><td>"+"<img src="+data.sprites.front_default+"></img>"+"</td><td>" +
+                            "<tr class='tablerow'><td>"+data.name+"</td><td>"+"<img src="+data.sprites.front_default+"></img>"+"</td><td>" +
                             data.abilities[0].ability.name+", "+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
                             data.weight+"</td></tr>"
                         )
@@ -48,8 +48,8 @@ $(function () {
                     url: 'https://pokeapi.co/api/v2/pokemon/ivysaur/',
                     dataType: 'json',
                     success: function (data) {
-                        $("#tablez").prepend(
-                            "<tr><td>"+data.name+"</td><td>"+"<img src="+data.sprites.front_default+"></img>"+"</td><td>" +
+                        $("#tablez").append(
+                            "<tr class='tablerow'><td>"+data.name+"</td><td>"+"<img src="+data.sprites.front_default+"></img>"+"</td><td>" +
                             data.abilities[0].ability.name+", "+data.abilities[1].ability.name+"</td><td>"+data.types[0].type.name+"</td><td>" +
                             data.weight+"</td></tr>"
                         )
